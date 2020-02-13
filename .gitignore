@@ -26,7 +26,10 @@
 *.a
 *.lib
 
-# Executables
-*.exe
-*.out
-*.app
+# Executables (keep these)
+#*.exe
+#*.out
+#*.app
+
+# PDF files
+*.pdf
