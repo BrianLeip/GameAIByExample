@@ -1,0 +1,30 @@
+Most of these old VS Project files don't work anymore.
+
+The first step is to retarget the project.  Either do it automatically when opening or go to Project --> Retarget solution
+
+But there is also a problem with the include files that won't allow it to build or compile.  
+The problem found early on is that he was including some header files that are in a completely different diretory.  
+VS don't like that so much, so it needs to be fixed.
+Two ways to fix it:
+1) Add the "Common" folder to the VC++ include Directories
+
+- Right click on the Project name (2nd row in solution explorer just under solution
+- Properties
+- Config Properties --> VC++ Directories
+- Include Directories --> Click the dropdown arrow --> Edit
+- Click the folder "New Line", then the [...] icon
+- Find the Common Directory
+- Click OK
+
+
+2) Change any of the files with an #include reference that hits these files so that it used correct folder navigation
+
+FOR EXAMPLE:
+#include "misc/ConsoleUtils.h"
+needs to be replaced with 
+#include "../../Common/misc/ConsoleUtils.h"
+
+
+ALSO IMPORANT!
+WHEN RUNNING THE FILES, DON'T BUILD THEM OR IT WILL JUST CREATE A LOT OF UNNECESSARY FILES AND TAKE UP SPACE
+INSTEAD, JUST GO TO DEBUG --> START WITHOUT DEBUGGING (OR CTRL + F5)
